@@ -13,3 +13,8 @@ you can start it with:
     ipython notebook --pylab=inline
 
 And see it in your browser at [http://127.0.0.1:8888/](http://127.0.0.1:8888/).
+
+If you just want to view the contents, you can see it on
+[nbviewer][notebook-nbviewer] without installing anything.
+
+[notebook-nbviewer]: http://nbviewer.ipython.org/urls/raw.githubusercontent.com/qPRC/qPRC/master/notebook/qPRC.ipynb "qPRC workflow notebook"
