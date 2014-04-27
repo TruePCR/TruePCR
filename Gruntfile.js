@@ -18,7 +18,8 @@ module.exports = function (grunt) {
     // Configurable paths
     var config = {
         app: 'app',
-        dist: 'dist'
+        prod: 'prod',
+        dist: '<%= config.prod %>/static'
     };
 
     // Define the configuration for all the tasks
@@ -334,6 +335,23 @@ module.exports = function (grunt) {
                 cwd: '<%= config.app %>/styles',
                 dest: '.tmp/styles/',
                 src: '{,*/}*.css'
+            },
+            // this task is a hack until grunt-django enables
+            // rewriting templates so that app/bower_components
+            // can be used directly
+            devscripts: {
+                expand: true,
+                dot: true,
+                cwd: '<%= yeoman.dist %>/scripts',
+                dest: '.tmp/scripts/',
+                src: 'vendor.js'
+            },
+            // copy all the non-frontend stuff into the production folder
+            prod:{
+                src: ['*', '**', '!app/**', '!prod/**', '!node_modules/**',
+                      '!test/**', '!Gruntfile.js', '!{bower,package}.json',
+                      '!{,*/}{.*,*~,#*#,*.pyc,*.sqlite3,__pycache__/**}'],
+                dest: '<%= yeoman.prod %>/'
             }
         },
 
@@ -369,6 +387,21 @@ module.exports = function (grunt) {
                 'imagemin',
                 'svgmin'
             ]
+        },
+
+        buildcontrol: {
+            options: {
+                dir: '<%= yeoman.prod %>',
+                commit: true,
+                push: true,
+                message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
+            },
+            prod: {
+                options: {
+                    remote: 'git@github.com:qPRC/qPRC.git',
+                    branch: 'prod'
+                }
+            }
         }
     });
 
@@ -417,7 +450,7 @@ module.exports = function (grunt) {
         'uglify',
         'copy:dist',
         'modernizr',
-        'rev',
+        // 'rev', // needs grunt-django
         'usemin',
         'htmlmin'
     ]);
@@ -426,5 +459,11 @@ module.exports = function (grunt) {
         'newer:jshint',
         'test',
         'build'
+    ]);
+
+    grunt.registerTask('publish', [
+        'build',
+        'copy:prod',
+        'buildcontrol:prod'
     ]);
 };
