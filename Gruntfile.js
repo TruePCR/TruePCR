@@ -342,7 +342,7 @@ module.exports = function (grunt) {
             devscripts: {
                 expand: true,
                 dot: true,
-                cwd: '<%= yeoman.dist %>/scripts',
+                cwd: '<%= config.dist %>/scripts',
                 dest: '.tmp/scripts/',
                 src: 'vendor.js'
             },
@@ -351,7 +351,7 @@ module.exports = function (grunt) {
                 src: ['*', '**', '!app/**', '!prod/**', '!node_modules/**',
                       '!test/**', '!Gruntfile.js', '!{bower,package}.json',
                       '!{,*/}{.*,*~,#*#,*.pyc,*.sqlite3,__pycache__/**}'],
-                dest: '<%= yeoman.prod %>/'
+                dest: '<%= config.prod %>/'
             }
         },
 
@@ -391,7 +391,7 @@ module.exports = function (grunt) {
 
         buildcontrol: {
             options: {
-                dir: '<%= yeoman.prod %>',
+                dir: '<%= config.prod %>',
                 commit: true,
                 push: true,
                 message: 'Built %sourceName% from commit %sourceCommit% on branch %sourceBranch%'
