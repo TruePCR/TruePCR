@@ -18,3 +18,43 @@ If you just want to view the contents, you can see it on
 [nbviewer][notebook-nbviewer] without installing anything.
 
 [notebook-nbviewer]: http://nbviewer.ipython.org/urls/raw.githubusercontent.com/qPRC/qPRC/master/notebook/qPRC.ipynb "qPRC workflow notebook"
+
+Web app
+-------
+
+### Development
+
+Get ready:
+
+    mkvirtualenv -p /usr/bin/python3 qPRC
+    pip install -r requirements/dev.txt
+    npm install
+    bower install
+    grunt build
+
+Link up your front+backend:
+
+    util/bootstrap.sh
+
+Then in one tab spin up the frontend workflow:
+
+    grunt serve
+
+And in another the backend workflow:
+
+    ./manage.py runserver_plus
+
+
+### Production
+
+Everything the same, except:
+
+    pip install -r requirements/prod.txt
+    util/boostrap.sh prod
+
+Or use the prod brunch:
+
+    grunt publish
+    cd prod
+    git checkout prod
+    ./manage.py runserver

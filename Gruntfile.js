@@ -83,6 +83,7 @@ module.exports = function (grunt) {
                         return [
                             connect.static('.tmp'),
                             connect().use('/bower_components', connect.static('./bower_components')),
+                            connect().use('/static/bower_components', connect.static('./bower_components')),
                             connect.static(config.app)
                         ];
                     }
@@ -350,7 +351,8 @@ module.exports = function (grunt) {
             prod:{
                 src: ['*', '**', '!app/**', '!prod/**', '!node_modules/**',
                       '!test/**', '!Gruntfile.js', '!{bower,package}.json',
-                      '!{,*/}{.*,*~,#*#,*.pyc,*.sqlite3,__pycache__/**}'],
+                      '!{,*/}{.*,*~,#*#,*.pyc,*.sqlite3,__pycache__/**}',
+                      '!bower_components/**'],
                 dest: '<%= config.prod %>/'
             }
         },
@@ -452,7 +454,7 @@ module.exports = function (grunt) {
         'modernizr',
         // 'rev', // needs grunt-django
         'usemin',
-        'htmlmin'
+        //'htmlmin', //confused by template tags
     ]);
 
     grunt.registerTask('default', [
@@ -467,3 +469,19 @@ module.exports = function (grunt) {
         'buildcontrol:prod'
     ]);
 };
+
+/*
+Rough steps to adapt Grunt to Django:
+1. config.dist = prod/static
+2. add STATICFILES_DIRS and TEMPLATES_DIR to settings.py
+3. copy:devscripts - copy the JS scripts to .tmp
+4. copy:prod - copy all the Django files to prod/
+5. buildcontrol - prod folder, prod branch
+6. disable rev & htmlmin tasks
+(7. .bowerrc {"directory": "app/bower_components"})
+7. tell grunt server to respont to '/static/bower_components'
+8. edit index.html to have build comments point to same paths
+9. dj-base.html based on index.html - rewrite using {% static %}
+9. bootstrap.sh script
+10. main.scss - add /static prefix to url
+*/
