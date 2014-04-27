@@ -52,3 +52,9 @@ coverage.xml
 # Sphinx documentation
 docs/_build/
 
+node_modules
+dist
+.tmp
+.sass-cache
+bower_components
+test/bower_components
