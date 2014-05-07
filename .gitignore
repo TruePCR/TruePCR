@@ -45,6 +45,9 @@ coverage.xml
 # Rope
 .ropeproject
 
+# IPython
+notebook/.ipynb_checkpoints
+
 # Django stuff:
 *.log
 *.pot
