@@ -1,0 +1,20 @@
+{% extends "dj-base.html" %}
+
+
+{% block content %}
+
+Datasets index.
+
+TODO: list datasets
+
+<!-- IMPORTANT enctype attribute! -->
+<form class="dropzone" action="{% url "datasets:home" %}" method="post" enctype="multipart/form-data">
+  {% csrf_token %}
+</form>
+
+<button id="submit-all">
+  Submit all files
+</button>
+
+{% endblock content %}
+

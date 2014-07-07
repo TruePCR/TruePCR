@@ -71,3 +71,6 @@ static
 *~
 \#*\#
 *.sqlite3
+
+# local uploaded files folder
+files
