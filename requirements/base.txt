@@ -1,8 +1,12 @@
-Django==1.6.3
+https://www.djangoproject.com/download/1.7c1/tarball/
 dj-database-url==0.3.0
-dj-static==0.0.5
-django-toolbelt==0.0.1
+#---
+# a bit messy until dj-static 0.0.6 gets released
+#dj-static==0.0.5
+git+https://github.com/kennethreitz/dj-static.git@b02979384d7c7a6944375c5959224bff40c2035a
+#django-toolbelt==0.0.1
+#---
 gunicorn==18.0
 psycopg2==2.5.2
-pystache==0.5.3
+pystache==0.5.4
 static==1.0.2

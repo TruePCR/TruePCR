@@ -32,6 +32,10 @@ Get ready:
     bower install
     grunt build
 
+See if any migrations are necessary:
+
+    ./manage.py migrate
+
 Link up your front+backend:
 
     util/bootstrap.sh
