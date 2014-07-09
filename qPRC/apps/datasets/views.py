@@ -15,6 +15,9 @@ def home(request):
             return HttpResponseRedirect(reverse('datasets:home'))
     else:
         form = DatasetForm
-    data = {'form': form}
+    data = {
+        'form': form,
+        'datasets': Dataset.objects.all()
+    }
     return render_to_response('datasets/index.html', data,
                               context_instance=RequestContext(request))

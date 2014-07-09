@@ -3,9 +3,17 @@
 
 {% block content %}
 
-Datasets index.
+<p>
+  Datasets:
+</p>
 
-TODO: list datasets
+<ul>
+{% for dataset in datasets %}
+  <li>{{ dataset }}</li>
+{% endfor %}
+</ul>
+
+TODO: refresh on submit!
 
 <!-- IMPORTANT enctype attribute! -->
 <form class="dropzone" action="{% url "datasets:home" %}" method="post" enctype="multipart/form-data">
