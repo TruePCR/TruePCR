@@ -13,16 +13,16 @@
 {% endfor %}
 </ul>
 
-TODO: refresh on submit!
-
-<!-- IMPORTANT enctype attribute! -->
-<form class="dropzone" action="{% url "datasets:home" %}" method="post" enctype="multipart/form-data">
+<form id="dataset-upload" class="dropzone" action="{% url 'datasets:home' %}"
+      method="post" enctype="multipart/form-data">
   {% csrf_token %}
+  <div class="fallback">
+    <input name="file" type="file" multiple />
+  </div>
+  <input type="submit" id="submit-all" />
 </form>
 
-<button id="submit-all">
-  Submit all files
-</button>
+
 
 {% endblock content %}
 

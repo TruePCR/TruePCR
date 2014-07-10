@@ -6,7 +6,7 @@ Dropzone.options.myDropzone = {
     autoProcessQueue : false,
 
     init : function() {
-        var submitButton = document.querySelector("#submit-all")
+        var submitButton = document.querySelector("#submit-all");
         myDropzone = this;
 
         submitButton.addEventListener("click", function() {
@@ -18,6 +18,7 @@ Dropzone.options.myDropzone = {
         // files are dropped here:
         this.on("addedfile", function() {
             // Show submit button here and/or inform user to click it.
+            document.forms["dataset-upload"].submit();
         });
 
     }
