@@ -1,25 +1,30 @@
-console.log('\'Allo \'Allo!');
+$(function() {
+    Dropzone.options.datasetUpload = {
 
-Dropzone.options.myDropzone = {
+        // Whether Dropzone should upload dropped files immediately
+        autoProcessQueue : true,
 
-    // Prevents Dropzone from uploading dropped files immediately
-    autoProcessQueue : false,
+        addRemoveLinks : true,
+        dictRemoveFile : "remove",
+        previewsContainer : "#dataset-previews",
+        clickable : "#dataset-upload",
 
-    init : function() {
-        var submitButton = document.querySelector("#submit-all");
-        myDropzone = this;
+        init : function() {
+            var submitButton = document.querySelector("#submit-all");
+            myDropzone = this;
 
-        submitButton.addEventListener("click", function() {
-            myDropzone.processQueue();
-            // Tell Dropzone to process all queued files.
-        });
+            submitButton.addEventListener("click", function() {
+                //myDropzone.processQueue();
+                // Tell Dropzone to process all queued files.
+            });
 
-        // You might want to show the submit button only when
-        // files are dropped here:
-        this.on("addedfile", function() {
-            // Show submit button here and/or inform user to click it.
-            document.forms["dataset-upload"].submit();
-        });
+            // You might want to show the submit button only when
+            // files are dropped here:
+            this.on("addedfile", function() {
+                // Show submit button here and/or inform user to click it.
+                //document.forms["dataset-upload"].submit();
+            });
 
-    }
-};
+        }
+    };
+});

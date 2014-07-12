@@ -13,16 +13,21 @@
 {% endfor %}
 </ul>
 
-<form id="dataset-upload" class="dropzone" action="{% url 'datasets:home' %}"
+<form id="dataset-upload" class="dropzone" action="/"
       method="post" enctype="multipart/form-data">
   {% csrf_token %}
+  <div id="dataset-previews" class="dropzone-previews">
+    <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+  </div>
   <div class="fallback">
     <input name="file" type="file" multiple />
   </div>
-  <input type="submit" id="submit-all" />
+  <input type="submit" id="submit-all" class="btn btn-success" />
 </form>
-
-
 
 {% endblock content %}
 
+{% block manual-js %}
+<script type="text/javascript">
+</script>
+{% endblock manual-js %}

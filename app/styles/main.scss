@@ -91,3 +91,12 @@ body {
         border-bottom: 0;
     }
 }
+
+/* qPRC customisations */
+
+.dropzone .dz-default.dz-message {
+    background-image: none;
+    span {
+         display: block;
+    }
+}
