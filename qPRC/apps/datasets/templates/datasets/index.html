@@ -17,12 +17,12 @@
       method="post" enctype="multipart/form-data">
   {% csrf_token %}
   <div id="dataset-previews" class="dropzone-previews">
-    <div class="dz-default dz-message"><span>Drop files here to upload</span></div>
+    <div class="dz-default dz-message"><span>Drop dataset here</span></div>
   </div>
   <div class="fallback">
     <input name="file" type="file" multiple />
   </div>
-  <input type="submit" id="submit-all" class="btn btn-success" />
+  <input type="submit" id="submit-all" class="btn btn-success" value="Submit" />
 </form>
 
 {% endblock content %}
