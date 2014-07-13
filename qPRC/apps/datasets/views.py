@@ -1,4 +1,4 @@
-from django.http import HttpResponseRedirect
+from django.http import HttpResponseRedirect, HttpResponse
 from django.template import RequestContext
 from django.core.urlresolvers import reverse
 from django.shortcuts import render_to_response
@@ -21,3 +21,6 @@ def home(request):
     }
     return render_to_response('datasets/index.html', data,
                               context_instance=RequestContext(request))
+
+def detail(request, dataset_id):
+    return HttpResponse('details of dataset {}'.format(dataset_id))
