@@ -7,7 +7,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="/favicon.ico">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
-
+        <link rel="stylesheet" href="styles/vendor.css"/>
         <link rel="stylesheet" href="styles/main.css"/>
         <script src="scripts/vendor/modernizr.js"></script>
 
@@ -29,8 +29,8 @@
             </div>
 
             <div class="jumbotron">
-                <h1>'Allo, 'Allo!</h1>
-                <p class="lead">Always a pleasure scaffolding your apps.</p>
+                <h1>qPRC styleguide</h1>
+                <p class="lead">Visual guidelines and patterns</p>
                 <p><a class="btn btn-lg btn-success" href="#">Splendid! <span class="glyphicon glyphicon-ok"></span></a></p>
             </div>
 
@@ -50,6 +50,22 @@
                     <p>Modernizr is an open-source JavaScript library that helps you build the next generation of HTML5 and CSS3-powered websites.</p>
 
                 </div>
+            </div>
+
+            <div class="row marketing">
+              <div class="col-lg-6">
+                <h2>Dataset upload</h2>
+                <form id="dataset-upload" class="dropzone" action="/"
+                      method="post" enctype="multipart/form-data">
+                  <div id="dataset-previews" class="dropzone-previews">
+                    <!-- <div class="dz-default dz-message"><span>Drop files here to upload</span></div> -->
+                  </div>
+                  <div class="fallback">
+                    <input name="file" type="file" multiple />
+                  </div>
+                  <input type="submit" id="submit-all" class="btn btn-success" value="Submit" />
+                </form>
+              </div>
             </div>
 
             <div class="footer">

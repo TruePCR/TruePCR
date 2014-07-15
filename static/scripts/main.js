@@ -1,1 +1,1 @@
-console.log("'Allo 'Allo!");
+$(function(){$("#submit-all").css("display","none"),Dropzone.options.datasetUpload={autoProcessQueue:!0,addRemoveLinks:!0,dictRemoveFile:"remove",previewsContainer:"#dataset-previews",clickable:"#dataset-upload",init:function(){var a=document.querySelector("#submit-all");myDropzone=this,a.addEventListener("click",function(){myDropzone.processQueue()}),this.on("addedfile",function(){$("#submit-all").css("display","inherit"),$("#dataset-upload .dz-message").css("display","none")})}}});

@@ -10,6 +10,7 @@
         <meta name="viewport" content="width=device-width">
         <link rel="shortcut icon" href="/favicon.ico">
         <!-- Place favicon.ico and apple-touch-icon.png in the root directory -->
+        <link rel="stylesheet" href="{% static 'styles/vendor.css' %}">
         <link rel="stylesheet" href="{% static 'styles/main.css' %}">
         <script src="{% static 'scripts/vendor/modernizr.js' %}"></script>
 
@@ -77,5 +78,8 @@
         <script src="{% static 'scripts/plugins.js' %}"></script>
 
         <script src="{% static 'scripts/main.js' %}"></script>
+
+        {% block manual-js %}
+        {% endblock manual-js %}
 </body>
 </html>

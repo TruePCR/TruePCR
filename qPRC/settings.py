@@ -36,6 +36,8 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
+    'qPRC.apps.datasets',
+    'storages',
 )
 
 MIDDLEWARE_CLASSES = (
@@ -66,6 +68,7 @@ if 'DATABASE_URL' in os.environ: # production environment
     # SECURITY WARNING: don't run with debug turned on in production!
     DEBUG = True
     TEMPLATE_DEBUG = True
+    S3_BACKEND = True
     # DB config
     import dj_database_url
     DATABASES['default'] =  dj_database_url.config()
@@ -76,6 +79,7 @@ if 'DATABASE_URL' in os.environ: # production environment
 else: # development environment
     DEBUG = True
     TEMPLATE_DEBUG = True
+    S3_BACKEND = False
     # print e-mails to the console instead of sending them
     EMAIL_BACKEND = 'django.core.mail.backends.console.EmailBackend'
     INSTALLED_APPS = INSTALLED_APPS + ('django_extensions',)
@@ -109,4 +113,36 @@ STATIC_URL = '/static/'
 STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '../static'),
     os.path.join(BASE_DIR, '../.tmp') # during grunt serve
+)
+
+# S3 file storage
+if S3_BACKEND:
+    #DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
+    # for boto:
+    DEFAULT_FILE_STORAGE = 'storages.backends.s3boto.S3BotoStorage'
+    # TODO: rethink input type=submit
+    AWS_ACCESS_KEY_ID = os.environ['AWS_ACCESS_KEY_ID']
+    AWS_SECRET_ACCESS_KEY = os.environ['AWS_SECRET_ACCESS_KEY']
+    AWS_STORAGE_BUCKET_NAME = os.environ['AWS_STORAGE_BUCKET_NAME']
+    #from storages.backends.s3 import CallingFormat
+    #AWS_CALLING_FORMAT = CallingFormat.SUBDOMAIN
+
+# logging
+
+import logging
+
+LOG_PATH, LOG_FILENAME = '.', 'qPRC.log'
+LOG_LEVEL = logging.DEBUG
+LOG_MAX = 10**6 # bytes
+
+logging.basicConfig(
+    level=LOG_LEVEL,
+    handlers=[logging.StreamHandler()]
+    # format='%(asctime)s [%(threadName)-12.12s] [%(levelname)-5.5s] %(message)s',
+    # handlers=[
+    #     logging.handlers.RotatingFileHandler(
+    #         os.path.join(LOG_PATH, LOG_FILENAME), maxBytes=LOG_MAX
+    #     ), # file output
+    #     logging.StreamHandler() # stdout
+    # ]
 )
