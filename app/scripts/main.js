@@ -5,7 +5,7 @@ $(function() {
     Dropzone.options.datasetUpload = {
 
         // Whether Dropzone should upload dropped files immediately
-        autoProcessQueue : false,
+        autoProcessQueue : true,
 
         addRemoveLinks : true,
         dictRemoveFile : "remove",

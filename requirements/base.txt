@@ -10,3 +10,5 @@ gunicorn==18.0
 psycopg2==2.5.2
 pystache==0.5.4
 static==1.0.2
+git+https://github.com/coagulant/django-storages-py3.git@21cc44a6edafef2d73ec70f28340a8fd46d724ce
+git+https://github.com/boto/boto.git@5a28d1c6a3b11b979bf32ea7fbfd6d5156c01395

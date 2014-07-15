@@ -23,4 +23,5 @@ def home(request):
                               context_instance=RequestContext(request))
 
 def detail(request, dataset_id):
+    # TODO: verify that we can get contents from S3
     return HttpResponse('details of dataset {}'.format(dataset_id))

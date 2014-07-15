@@ -74,3 +74,4 @@ static
 
 # local uploaded files folder
 files
+.env
