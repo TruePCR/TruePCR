@@ -25,3 +25,13 @@ def home(request):
 def detail(request, dataset_id):
     # TODO: verify that we can get contents from S3
     return HttpResponse('details of dataset {}'.format(dataset_id))
+
+# API
+
+from django.core import serializers
+
+def index(request):
+    datasets = Dataset.objects.all()
+    JSONSerializer = serializers.get_serializer("json")
+    json_serializer = JSONSerializer()
+    return HttpResponse(json_serializer.serialize(datasets))

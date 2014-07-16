@@ -1,7 +1,7 @@
 $(function() {
 
     $("#submit-all").css("display", "none");
-    
+
     Dropzone.options.datasetUpload = {
 
         // Whether Dropzone should upload dropped files immediately
@@ -36,4 +36,9 @@ $(function() {
 
         }
     };
+
+    $.getJSON( "/api/index", function( data ) {
+        console.log(data);
+    });
 });
+
