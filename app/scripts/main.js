@@ -1,3 +1,16 @@
+function refresh_datasets(){
+    $.getJSON( "/api/index", function( data ) {
+        var items = [];
+        $.each(data, function( key, val ) {
+            items.push("<li><a href='/" + val.pk + "/'>" +
+                       val.fields.file + "</a></li>");
+        });
+        console.log(data);
+        var container = $('ul#datasets');
+        container.empty().append(items);
+    });
+}
+
 $(function() {
 
     $("#submit-all").css("display", "none");
@@ -34,11 +47,12 @@ $(function() {
                 //document.forms["dataset-upload"].submit();
             });
 
+            this.on("complete", function() {
+                refresh_datasets();
+            });
+
         }
     };
 
-    $.getJSON( "/api/index", function( data ) {
-        console.log(data);
-    });
 });
 

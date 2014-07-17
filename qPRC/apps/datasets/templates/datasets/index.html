@@ -7,7 +7,7 @@
   Datasets:
 </p>
 
-<ul>
+<ul id="datasets">
 {% for dataset in datasets %}
   <li><a href="{% url 'datasets:detail' dataset.id %}">{{ dataset }}</a></li>
 {% endfor %}
