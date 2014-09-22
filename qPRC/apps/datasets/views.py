@@ -5,6 +5,7 @@ from django.shortcuts import render_to_response
 
 from .forms import DatasetForm
 from .models import Dataset
+from qPRC.lib.parser import parse
 
 def home(request):
     if request.method == 'POST':
@@ -23,8 +24,11 @@ def home(request):
                               context_instance=RequestContext(request))
 
 def detail(request, dataset_id):
-    # TODO: verify that we can get contents from S3
-    return HttpResponse('details of dataset {}'.format(dataset_id))
+    dataset = Dataset.objects.get(pk=dataset_id)
+    dna = parse(dataset.file)
+    # TODO: plot using D3
+    return HttpResponse('<h1>Dataset {}</h1>{}'.format(dataset_id,
+                                                       dna.to_html()))
 
 # API
 

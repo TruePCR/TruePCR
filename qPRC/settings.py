@@ -115,7 +115,7 @@ STATICFILES_DIRS = (
     os.path.join(BASE_DIR, '../.tmp') # during grunt serve
 )
 
-# S3 file storage
+# S3 file storage backend
 if S3_BACKEND:
     #DEFAULT_FILE_STORAGE = 'storages.backends.s3.S3Storage'
     # for boto:
