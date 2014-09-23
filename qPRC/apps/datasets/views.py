@@ -24,6 +24,7 @@ def home(request):
                               context_instance=RequestContext(request))
 
 def detail(request, dataset_id):
+    # TODO: some way to open http://localhost:8000/1/well/15/dye/ROX
     dataset = Dataset.objects.get(pk=dataset_id)
     dna = parse(dataset.file)
     # TODO: plot using D3
@@ -39,3 +40,10 @@ def index(request):
     JSONSerializer = serializers.get_serializer("json")
     json_serializer = JSONSerializer()
     return HttpResponse(json_serializer.serialize(datasets))
+
+def well(request, dataset_id, well, dye):
+    """well number, dye as parameters"""
+    dataset = Dataset.objects.get(pk=dataset_id)
+    dna = parse(dataset.file)
+    well_json = dna.loc[:, (int(well), dye)].to_json()
+    return HttpResponse(well_json)
