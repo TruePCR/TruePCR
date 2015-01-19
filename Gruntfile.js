@@ -444,6 +444,7 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
+        // tmp. disable usemin*, uglify, concat, cssmin while https://github.com/shutterstock/rickshaw/issues/52
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',

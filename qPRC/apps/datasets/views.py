@@ -23,6 +23,17 @@ def home(request):
     return render_to_response('datasets/index.html', data,
                               context_instance=RequestContext(request))
 
+def overview(request, dataset_id):
+    dataset = Dataset.objects.get(pk=dataset_id)
+    dna = parse(dataset.file)
+    well, dye = dna.columns[0]
+    # TODO: in the template show all the well and dye selection options
+    # and for every selection redraw the graph in JS
+    url = "/{}/well/{}/dye/{}".format(dataset_id, well, dye)
+    data = {'dna': dna}
+    return render_to_response('datasets/overview.html', data,
+                              context_instance=RequestContext(request))
+
 def detail(request, dataset_id):
     # TODO: some way to open http://localhost:8000/1/well/15/dye/ROX
     dataset = Dataset.objects.get(pk=dataset_id)
