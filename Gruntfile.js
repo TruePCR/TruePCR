@@ -223,7 +223,16 @@ module.exports = function (grunt) {
         // additional tasks can operate on them
         useminPrepare: {
             options: {
-                dest: '<%= config.dist %>'
+                dest: '<%= config.dist %>',
+                // tmp. disable usemin minification and uglify
+                // while https://github.com/shutterstock/rickshaw/issues/52
+                // remove flow when fixed
+                flow: {
+                    html: {
+                        steps: {'js': ['concat'], 'css': ['concat', 'cssmin']},
+                        post: {}
+                    }
+                }
             },
             html: '<%= config.app %>/index.html'
         },
@@ -444,13 +453,14 @@ module.exports = function (grunt) {
 
     grunt.registerTask('build', [
         'clean:dist',
-        // tmp. disable usemin*, uglify, concat, cssmin while https://github.com/shutterstock/rickshaw/issues/52
         'useminPrepare',
         'concurrent:dist',
         'autoprefixer',
         'concat',
         'cssmin',
-        'uglify',
+        // tmp. disable usemin minification and uglify
+        // while https://github.com/shutterstock/rickshaw/issues/52
+        //'uglify',
         'copy:dist',
         'modernizr',
         // 'rev', // needs grunt-django
