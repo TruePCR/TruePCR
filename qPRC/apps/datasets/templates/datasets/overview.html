@@ -3,10 +3,30 @@
 
 {% block content %}
 
-<h2>Dataset:</h2>
+<h2>Dataset</h2>
+
+<p>View <a href="/1/detail">raw data</a>.</p>
 
 <p>
-Plot this using http://metricsgraphicsjs.org/
+  <form class="form-inline">
+  <div class="form-group">
+    <label for="well-input">Well</label>
+    <select class="form-control" id="well-input">
+      <option>1</option>
+      <option>2</option>
+      <option>3</option>
+      <option>4</option>
+      <option>5</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="dye-input">Dye</label>
+    <select class="form-control" id="dye-input">
+      <option>SYBR</option>
+      <option>ROX</option>
+    </select>
+  </div>
+  </form>
 </p>
 
 <p>
