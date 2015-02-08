@@ -1,0 +1,41 @@
+{% extends "dj-base.html" %}
+
+
+{% block content %}
+
+<h2>Dataset</h2>
+
+<p>View <a href="/1/detail">raw data</a>.</p>
+
+<p>
+  <form class="form-inline">
+  <div class="form-group">
+    <label for="well-input">Well</label>
+    <select class="form-control" id="well-input">
+      <option>15</option>
+      <option>16</option>
+      <option>17</option>
+      <option>18</option>
+      <option>19</option>
+    </select>
+  </div>
+  <div class="form-group">
+    <label for="dye-input">Dye</label>
+    <select class="form-control" id="dye-input">
+      <option>SYBR</option>
+      <option>ROX</option>
+    </select>
+  </div>
+  </form>
+</p>
+
+<p>
+<div id="graph"></div>
+</p>
+
+{% endblock content %}
+
+{% block manual-js %}
+<script>
+</script>
+{% endblock manual-js %}
