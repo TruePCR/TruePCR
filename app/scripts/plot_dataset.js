@@ -1,6 +1,8 @@
 // Plot dataset
 
  $(function(){
+
+   // plot graph
    $.getJSON('/1/well/15/dye/SYBR', function(data){
      console.log(data);
      data2 = [];
@@ -25,5 +27,17 @@
      });
      graph.render();
    });
+
+     // on well change redraw the graph
+     $('#well-input').on("change", function(){
+         console.log($(this).val());
+         // TODO: call the redraw
+     });
+
+     // on colour change redraw the graph
+     $('#dye-input').on("change", function(){
+         console.log($(this).val());
+         // TODO: call the redraw
+     });
 
  });
