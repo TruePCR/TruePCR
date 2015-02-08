@@ -25,7 +25,9 @@ def home(request):
 
 def overview(request, dataset_id):
     dataset = Dataset.objects.get(pk=dataset_id)
-    dna = parse(dataset.file)
+    #dataset.file.open(mode='r')
+    dna = parse(dataset.file.url)
+    #dataset.file.close()
     well, dye = dna.columns[0]
     # TODO: in the template show all the well and dye selection options
     # and for every selection redraw the graph in JS
