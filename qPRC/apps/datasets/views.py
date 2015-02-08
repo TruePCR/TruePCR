@@ -25,9 +25,7 @@ def home(request):
 
 def overview(request, dataset_id):
     dataset = Dataset.objects.get(pk=dataset_id)
-    #dataset.file.open(mode='r')
     dna = parse(dataset.file.url)
-    #dataset.file.close()
     well, dye = dna.columns[0]
     # TODO: in the template show all the well and dye selection options
     # and for every selection redraw the graph in JS
@@ -39,7 +37,7 @@ def overview(request, dataset_id):
 def detail(request, dataset_id):
     # TODO: some way to open http://localhost:8000/1/well/15/dye/ROX
     dataset = Dataset.objects.get(pk=dataset_id)
-    dna = parse(dataset.file)
+    dna = parse(dataset.file.url)
     # TODO: plot using D3
     return HttpResponse('<h1>Dataset {}</h1>{}'.format(dataset_id,
                                                        dna.to_html()))
@@ -57,6 +55,6 @@ def index(request):
 def well(request, dataset_id, well, dye):
     """well number, dye as parameters"""
     dataset = Dataset.objects.get(pk=dataset_id)
-    dna = parse(dataset.file)
+    dna = parse(dataset.file.url)
     well_json = dna.loc[:, (int(well), dye)].to_json()
     return HttpResponse(well_json)
