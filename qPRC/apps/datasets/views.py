@@ -55,5 +55,7 @@ def well(request, dataset_id, well, dye):
     """well number, dye as parameters"""
     dataset = Dataset.objects.get(pk=dataset_id)
     dna = dataset.data()
+    #print(dataset.fit(31, 'SYBR'))
+    # TODO: API endpoint to get fitted vals
     well_json = dna.loc[:, (int(well), dye)].to_json()
     return HttpResponse(well_json)
