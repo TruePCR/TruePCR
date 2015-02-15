@@ -59,3 +59,10 @@ def well(request, dataset_id, well, dye):
     # TODO: API endpoint to get fitted vals
     well_json = dna.loc[:, (int(well), dye)].to_json()
     return HttpResponse(well_json)
+
+def concentrations_model(request, dataset_id, well, dye):
+    """time series of modelled contenctrations for well, dye"""
+    dataset = Dataset.objects.get(pk=dataset_id)
+    concentrations = dataset.fitted_values(well, dye)
+    concentrations_json = concentrations.to_json()
+    return HttpResponse(concentrations_json)

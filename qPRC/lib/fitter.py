@@ -4,7 +4,7 @@ import numpy as np
 import math
 from scipy.optimize import curve_fit
 
-def _slice(concentrations_raw):
+def slice(concentrations_raw):
     """slice automatically"""
     conc_diff = concentrations_raw.diff()
     decrease_start_index = conc_diff[conc_diff<0].index[0]
@@ -37,7 +37,7 @@ def fit(data, well, dye):
 
     # select the concentrations column from the dataset
     concentrations_raw = data.loc[:,(well, dye)]
-    concentrations = _slice(concentrations_raw)
+    concentrations = slice(concentrations_raw)
 
     # parameters - TODO: move to settings file or expose in the UI
     k = 1
