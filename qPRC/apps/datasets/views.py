@@ -26,10 +26,10 @@ def overview(request, dataset_id):
     dataset = Dataset.objects.get(pk=dataset_id)
     dna = dataset.data()
     well, dye = dna.columns[0]
-    # TODO: in the template show all the well and dye selection options
-    # and for every selection redraw the graph in JS
+    wells, dyes = dna.columns.levels
     url = "/{}/well/{}/dye/{}".format(dataset_id, well, dye)
-    data = {'dna': dna}
+    # TODO: what was this url for?
+    data = {'dna': dna, 'wells': wells, 'dyes': dyes}
     return render_to_response('datasets/overview.html', data,
                               context_instance=RequestContext(request))
 
@@ -37,7 +37,6 @@ def detail(request, dataset_id):
     # TODO: some way to open http://localhost:8000/1/well/15/dye/ROX
     dataset = Dataset.objects.get(pk=dataset_id)
     dna = dataset.data()
-    # TODO: plot using D3
     return HttpResponse('<h1>Dataset {}</h1>{}'.format(dataset_id,
                                                        dna.to_html()))
 
