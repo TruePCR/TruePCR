@@ -61,6 +61,14 @@
             </div>
 
             <div class="row marketing">
+                <div class="col-lg-6">
+                    <div id="graph_container">
+                        <div id="graph_dummy"></div>
+                    </div>
+                </div>
+            </div>
+
+            <div class="row marketing">
               <div class="col-lg-6">
                 <h2>Dataset upload</h2>
                 <form id="dataset-upload" class="dropzone" action="/"
@@ -75,8 +83,6 @@
                 </form>
               </div>
             </div>
-
-            <div id="chart"></div>
 
             <div class="footer">
                 <p><span class="glyphicon glyphicon-heart"></span> from the Yeoman team</p>
@@ -121,6 +127,7 @@
         <!-- build:js({app,.tmp}) scripts/main.js -->
         <script src="scripts/main.js"></script>
         <script src="scripts/plot_dataset.js"></script>
+        <script src="scripts/plot_dataset_dummy.js"></script>
         <!-- endbuild -->
 </body>
 </html>

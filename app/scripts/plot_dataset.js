@@ -20,8 +20,8 @@
              // add new graph
              var graph = new Rickshaw.Graph( {
                  element: document.querySelector("#graph"),
-                 width: 300,
-                 height: 200,
+                 width: 600,
+                 height: 400,
                  series: [{
                      color: 'steelblue',
                      data: data2
@@ -34,6 +34,8 @@
                      // ]
                  }]
              });
+             // set the axes
+             //var axes = new Rickshaw.Graph.Axis.Time( { graph: graph } );
              graph.render();
          });
      };

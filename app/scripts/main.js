@@ -1,4 +1,5 @@
 function refresh_datasets(){
+    // callback that displays the uploaded datasets
     $.getJSON( "/api/index", function( data ) {
         var items = [];
         $.each(data, function( key, val ) {
