@@ -15,3 +15,4 @@ git+https://github.com/boto/boto.git@5a28d1c6a3b11b979bf32ea7fbfd6d5156c01395
 
 # scientific stuff
 pandas==0.14.1
+scipy==0.15.1
