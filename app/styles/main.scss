@@ -103,3 +103,19 @@ body {
 
 #graph_container { text-align: center; }
 #graph, #graph_dummy {}
+
+#graph_container {
+        position: relative;
+        font-family: Arial, Helvetica, sans-serif;
+}
+#graph, #graph_dummy {
+        position: relative;
+        left: 40px;
+}
+
+#y_axis {
+        position: absolute;
+        top: 0;
+        bottom: 0;
+        width: 40px;
+}
