@@ -50,8 +50,19 @@
          });
      };
 
+     function plot_model(well, dye){
+         var id = 1; // TODO: vary based on the opened page
+         var url = '/api/model/' + id + '/well/' + well + '/dye/' + dye;
+         // plot graph
+         $.getJSON(url, function(data){
+             console.log('model data:');
+             console.log(data);
+         });
+     }
+
      // initial plot
      plot_dataset(well, dye);
+     plot_model(well, dye);
 
      // on well change redraw the graph
      $('#well-input').on("change", function(){
