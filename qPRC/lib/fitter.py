@@ -17,17 +17,20 @@ def f(meas, offset, n0, gama, nn, alfa):
     for i in meas:
         # ipdb.set_trace()
         num = np.zeros(i)
+        prim = np.zeros(i)
         if n0 < 0 or nn < 0:
             return np.repeat(1e10, len(meas))
             num[0] = n0
             summ = n0
+            prim[0] = nn
             for idx in range(1, i):
                 # ipdb.set_trace()
                 num[idx] = num[idx - 1] * \
                             (1.0 +
-                             gama / (1.0 + math.exp(alfa * math.log(summ / nn)))
+                             gama / (1.0 + alfa * (summ / prim(j-1))))
                             )
                 summ = summ + num[idx]
+                prim[idx] = prim[idx - 1] - (num[idx] - num[idx - 1])
 
         meas_calc[i - 1] = num[-1] + offset
         return meas_calc
@@ -63,7 +66,7 @@ def fit(data, well, dye):
     # reactants
     reactants = last_reading/2.0
 
-    # power
+    # multiplier
     power = 1.0
 
     sy = concentrations.copy()
@@ -71,9 +74,9 @@ def fit(data, well, dye):
         if (elm > 1.5 * offset) and (elm < 0.5 * last_reading):
             sy[i] = 0.5
         elif (i < index - 10):
-            sy[i] = 2.5
+            sy[i] = 1.0
         elif (elm > last_reading/1.5):
-            sy[i] = 1.2
+            sy[i] = 1.5
 
     # bounds
     al = 0.0
