@@ -62,3 +62,10 @@ Or use the prod brunch:
     cd prod
     git checkout prod
     ./manage.py runserver
+
+## Deployment
+
+To deploy to Heroku, from the repo root run:
+
+    grunt publish
+    (cd prod; git push heroku prod:master)
