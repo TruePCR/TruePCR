@@ -14,5 +14,5 @@ git+https://github.com/coagulant/django-storages-py3.git@21cc44a6edafef2d73ec70f
 git+https://github.com/boto/boto.git@5a28d1c6a3b11b979bf32ea7fbfd6d5156c01395
 
 # scientific stuff
-pandas==0.14.1
+pandas==0.17.0
 scipy==0.15.1

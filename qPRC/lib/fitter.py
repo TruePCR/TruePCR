@@ -25,10 +25,9 @@ def f(meas, offset, n0, gama, nn, alfa):
             prim[0] = nn
             for idx in range(1, i):
                 # ipdb.set_trace()
-                num[idx] = num[idx - 1] * \
-                            (1.0 +
-                             gama / (1.0 + alfa * (summ / prim(j-1))))
-                            )
+                num[idx] = num[idx - 1] * (
+                    1.0 + gama / (1.0 + alfa * (summ / prim(j-1)))
+                )
                 summ = summ + num[idx]
                 prim[idx] = prim[idx - 1] - (num[idx] - num[idx - 1])
 
