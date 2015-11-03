@@ -24,6 +24,18 @@ Web app
 
 ### Development
 
+Assuming a Python sci/dev environment, which would on e.g. OS X be more or less:
+
+ - install OS X command line tools (or Xcode)
+ - install [Homebrew](http://brew.sh/)
+ - install some binary dependencies
+
+        brew install python3 gcc freetype
+
+ - install some Python global dependencies
+
+        pip install virtualenvwrapper
+
 Get ready:
 
     mkvirtualenv -p /usr/bin/python3 qPRC
