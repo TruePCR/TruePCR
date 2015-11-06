@@ -15,24 +15,22 @@ def slice(concentrations_raw):
 def f(meas, offset, n0, gama, nn, alfa):
     meas_calc = np.zeros(len(meas))
     for i in meas:
-        # ipdb.set_trace()
         num = np.zeros(i)
         prim = np.zeros(i)
         if n0 < 0 or nn < 0:
             return np.repeat(1e10, len(meas))
-            num[0] = n0
-            summ = n0
-            prim[0] = nn
-            for idx in range(1, i):
-                # ipdb.set_trace()
-                num[idx] = num[idx - 1] * (
-                    1.0 + gama / (1.0 + alfa * (summ / prim(j-1)))
-                )
-                summ = summ + num[idx]
-                prim[idx] = prim[idx - 1] - (num[idx] - num[idx - 1])
+        num[0] = n0
+        summ = n0
+        prim[0] = nn
+        for idx in range(1, i):
+            num[idx] = num[idx - 1] * (
+                1.0 + gama / (1.0 + alfa * (summ / prim[idx - 1]))
+            )
+            summ = summ + num[idx]
+            prim[idx] = prim[idx - 1] - (num[idx] - num[idx - 1])
 
         meas_calc[i - 1] = num[-1] + offset
-        return meas_calc
+    return meas_calc
 
 def fit(data, well, dye):
     """return the fitted model of the concentrations"""
@@ -79,10 +77,17 @@ def fit(data, well, dye):
 
     # bounds
     al = 0.0
-    variables = np.array([5*offset, last_reading, 1.01,
-                          last_reading + 10.0, 3.0])
+
+    # these were from the old model
+    # variables = np.array([5*offset, last_reading, 1.01,
+    #                       last_reading + 10.0, 3.0])
+
+    # obtained by randomly tweaking the output params and passing them into the
+    # curve_fit again
+    good_variables = [1.76050783e+05, 5.78e+02, +1.13766225e+00,
+                      7.42308865e+05, 8.11068606e+00]
 
     times = list(range(1, len(concentrations) + 1))
-    fitted_params = curve_fit(f, times, concentrations, p0=variables)
+    fitted_params = curve_fit(f, times, concentrations, p0=good_variables)
     params = fitted_params[0]
     return params
