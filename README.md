@@ -4,20 +4,20 @@ Web UI for visualising DNA concentration over time.
 
 Notebook
 --------
-While developing the workflow, we are using a Python notebook.
+While developing the workflow, we are using a Jupyter notebook.
 Assuming you have your
-[Python sci dev environment set up](http://www.scipy.org/install.html),
-you can start it with:
+[Python sci dev environment set up](http://www.scipy.org/install.html)
+(Python 3.5 was used during development),
+you can start it from the root of the git repository with:
 
-    cd notebook
-    ipython notebook --pylab=inline
+    jupyter notebook --notebook-dir=./notebook
 
-And see it in your browser at [http://127.0.0.1:8888/](http://127.0.0.1:8888/).
+And see it in your browser at <http://127.0.0.1:8888/>.
 
 If you just want to view the contents, you can see it on
 [nbviewer][notebook-nbviewer] without installing anything.
 
-[notebook-nbviewer]: http://nbviewer.ipython.org/urls/raw.githubusercontent.com/qPRC/qPRC/master/notebook/qPRC.ipynb "qPRC workflow notebook"
+[notebook-nbviewer]: http://nbviewer.jupyter.org/github/qPRC/qPRC/blob/master/notebook/qPRC.ipynb "qPRC workflow notebook"
 
 Web app
 -------
