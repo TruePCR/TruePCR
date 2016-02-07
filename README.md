@@ -1,6 +1,6 @@
-qPRC
+qPRC [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.45660.svg)](http://dx.doi.org/10.5281/zenodo.45660)
 ====
-Web UI for visualising DNA concentration over time.
+Jupyter notebook and web UI for modelling visualising DNA concentration over time.
 
 Notebook
 --------
