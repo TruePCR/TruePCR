@@ -1,4 +1,4 @@
-qPRC [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.45660.svg)](http://dx.doi.org/10.5281/zenodo.45660)
+TruePCR [![DOI](https://zenodo.org/badge/doi/10.5281/zenodo.45660.svg)](http://dx.doi.org/10.5281/zenodo.45660)
 ====
 Jupyter notebook and web UI for modelling visualising DNA concentration over time.
 
@@ -17,7 +17,7 @@ And see it in your browser at <http://127.0.0.1:8888/>.
 If you just want to view the contents, you can see it on
 [nbviewer][notebook-nbviewer] without installing anything.
 
-[notebook-nbviewer]: http://nbviewer.jupyter.org/github/qPRC/qPRC/blob/master/notebook/qPRC.ipynb "qPRC workflow notebook"
+[notebook-nbviewer]: http://nbviewer.jupyter.org/github/TruePCR/TruePCR/blob/master/notebook/TruePCR.ipynb "TruePCR workflow notebook"
 
 Web app
 -------
@@ -38,7 +38,7 @@ Assuming a Python sci/dev environment, which would on e.g. OS X be more or less:
 
 Get ready:
 
-    mkvirtualenv -p /usr/bin/python3 qPRC
+    mkvirtualenv -p /usr/bin/python3 TruePCR
     pip install -r requirements/dev.txt
     npm install
     bower install
