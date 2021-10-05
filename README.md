@@ -14,10 +14,10 @@ you can start it from the root of the git repository with:
 
 And see it in your browser at <http://127.0.0.1:8888/>.
 
-If you just want to view the contents, you can see it on
-[nbviewer][notebook-nbviewer] without installing anything.
+If you just want to view the contents, you can see it 
+[here][notebook-nbviewer] without installing anything.
 
-[notebook-nbviewer]: https://nbviewer.jupyter.org/github/TruePCR/TruePCR/blob/master/notebook/TruePCR.ipynb "TruePCR workflow notebook"
+[notebook-nbviewer]: https://github.com/TruePCR/TruePCR/blob/master/notebook/TruePCR.ipynb "TruePCR workflow notebook"
 
 Web app
 -------
