@@ -1,9 +1,9 @@
 from django.db import models
 import pandas as pd
 
-from qPRC.lib.parser import parse
-from qPRC.lib.fitter import fit as _fit
-from qPRC.lib.fitter import slice as _slice
+from TruePCR.lib.parser import parse
+from TruePCR.lib.fitter import fit as _fit
+from TruePCR.lib.fitter import slice as _slice
 
 class Dataset(models.Model):
     file = models.FileField(upload_to='files/%Y/%m/%d')

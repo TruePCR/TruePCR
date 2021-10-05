@@ -1,5 +1,5 @@
 {
-  "name": "qprc",
+  "name": "TruePCR",
   "private": true,
   "dependencies": {
     "bootstrap-sass-official": "~3.1.0",

@@ -1,5 +1,5 @@
 {
-  "name": "qprc",
+  "name": "TruePCR",
   "private": true,
   "dependencies": {
     "chai": "~1.8.0",

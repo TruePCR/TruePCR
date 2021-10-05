@@ -1,1 +1,1 @@
-web: gunicorn qPRC.wsgi
+web: gunicorn TruePCR.wsgi

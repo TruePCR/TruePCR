@@ -1,5 +1,5 @@
 """
-Django settings for qPRC project.
+Django settings for TruePCR project.
 
 For more information on this file, see
 https://docs.djangoproject.com/en/1.6/topics/settings/
@@ -36,7 +36,7 @@ INSTALLED_APPS = (
     'django.contrib.sessions',
     'django.contrib.messages',
     'django.contrib.staticfiles',
-    'qPRC.apps.datasets',
+    'TruePCR.apps.datasets',
     'storages',
 )
 
@@ -49,9 +49,9 @@ MIDDLEWARE_CLASSES = (
     'django.middleware.clickjacking.XFrameOptionsMiddleware',
 )
 
-ROOT_URLCONF = 'qPRC.urls'
+ROOT_URLCONF = 'TruePCR.urls'
 
-WSGI_APPLICATION = 'qPRC.wsgi.application'
+WSGI_APPLICATION = 'TruePCR.wsgi.application'
 
 
 # Database
@@ -131,7 +131,7 @@ if S3_BACKEND:
 
 import logging
 
-LOG_PATH, LOG_FILENAME = '.', 'qPRC.log'
+LOG_PATH, LOG_FILENAME = '.', 'TruePCR.log'
 LOG_LEVEL = logging.DEBUG
 LOG_MAX = 10**6 # bytes
 

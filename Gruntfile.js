@@ -409,7 +409,7 @@ module.exports = function (grunt) {
             },
             prod: {
                 options: {
-                    remote: 'git@github.com:qPRC/qPRC.git',
+                    remote: 'git@github.com:TruePCR/TruePCR.git',
                     branch: 'prod'
                 }
             }

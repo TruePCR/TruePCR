@@ -5,10 +5,10 @@ admin.autodiscover()
 
 urlpatterns = patterns('',
     # Examples:
-    # url(r'^$', 'qPRC.views.home', name='home'),
-    #url(r'^$', 'qPRC.views.dashboard', name='dashboard'),
-    #url(r'^$', 'qPRC.apps.datasets.views.home', name='datasets'),
-    url(r'^', include('qPRC.apps.datasets.urls',
+    # url(r'^$', 'TruePCR.views.home', name='home'),
+    #url(r'^$', 'TruePCR.views.dashboard', name='dashboard'),
+    #url(r'^$', 'TruePCR.apps.datasets.views.home', name='datasets'),
+    url(r'^', include('TruePCR.apps.datasets.urls',
                        namespace='datasets',
                        app_name='datasets')),
     # url(r'^blog/', include('blog.urls')),
