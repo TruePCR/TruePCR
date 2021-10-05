@@ -17,7 +17,7 @@ And see it in your browser at <http://127.0.0.1:8888/>.
 If you just want to view the contents, you can see it on
 [nbviewer][notebook-nbviewer] without installing anything.
 
-[notebook-nbviewer]: http://nbviewer.jupyter.org/github/TruePCR/TruePCR/blob/master/notebook/TruePCR.ipynb "TruePCR workflow notebook"
+[notebook-nbviewer]: https://nbviewer.jupyter.org/github/TruePCR/TruePCR/blob/master/notebook/TruePCR.ipynb "TruePCR workflow notebook"
 
 Web app
 -------
